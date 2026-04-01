@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, jsonify, redirect, url_for, abort
-from flask_sqlalchemy import SQLAlchemy
 import json
 import os
 import requests # For Telegram
@@ -7,6 +6,7 @@ from datetime import datetime
 import threading
 import time
 from flask import Response
+from pymongo import MongoClient
 
 try:
     from watchdog.observers import Observer
@@ -94,30 +94,17 @@ def sitemap():
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.jinja_env.auto_reload = True
 
-# --- Database Configuration ---
-DATABASE_URL = os.environ.get('DATABASE_URL', 'sqlite:///local_dev.db') # Fallback for local dev
-if DATABASE_URL.startswith("postgres://"):
-    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
-app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+# --- MongoDB Configuration ---
+MONGODB_URI = os.environ.get('MONGODB_URI', '').strip()
+MONGODB_DB = os.environ.get('MONGODB_DB', 'axflo')
 
-# --- Database Models ---
-class ContactMessage(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
-    name = db.Column(db.String(100), nullable=False)
-    email_phone = db.Column(db.String(100), nullable=False)
-    message = db.Column(db.Text, nullable=False)
+mongo_client = MongoClient(MONGODB_URI) if MONGODB_URI else None
 
-class QuoteRequest(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
-    name = db.Column(db.String(100), nullable=False)
-    contact_info = db.Column(db.String(100), nullable=False)
-    company = db.Column(db.String(100), nullable=True)
-    selected_products = db.Column(db.Text, nullable=True) # Storing as comma-separated string
-    details = db.Column(db.Text, nullable=False)
+
+def get_mongo_db():
+    if mongo_client is None:
+        return None
+    return mongo_client[MONGODB_DB]
 
 # --- Helper Functions ---
 
@@ -303,13 +290,19 @@ def contact():
 
         # --- SAVE TO DATABASE ---
         try:
-            new_message = ContactMessage(name=name, email_phone=email, message=message_content)
-            db.session.add(new_message)
-            db.session.commit()
-            print("Contact message saved to database.")
+            db = get_mongo_db()
+            if db is not None:
+                db.contact_messages.insert_one({
+                    "timestamp": datetime.utcnow(),
+                    "name": name,
+                    "email_phone": email,
+                    "message": message_content,
+                })
+                print("Contact message saved to MongoDB.")
+            else:
+                print("WARNING: MONGODB_URI not set. Skipping DB write for contact form.")
         except Exception as e:
-            db.session.rollback()
-            print(f"Error saving contact message to database: {e}")
+            print(f"Error saving contact message to MongoDB: {e}")
         # ---
 
         # --- SEND TELEGRAM NOTIFICATION ---
@@ -335,13 +328,22 @@ def request_quote():
 
         # --- SAVE TO DATABASE ---
         try:
-            new_quote = QuoteRequest(name=name, contact_info=contact_info, company=company, selected_products=product_str, details=details)
-            db.session.add(new_quote)
-            db.session.commit()
-            print("Quote request saved to database.")
+            db = get_mongo_db()
+            if db is not None:
+                db.quote_requests.insert_one({
+                    "timestamp": datetime.utcnow(),
+                    "name": name,
+                    "contact_info": contact_info,
+                    "company": company,
+                    "selected_products": selected_products,
+                    "details": details,
+                    "selected_products_text": product_str,
+                })
+                print("Quote request saved to MongoDB.")
+            else:
+                print("WARNING: MONGODB_URI not set. Skipping DB write for quote form.")
         except Exception as e:
-            db.session.rollback()
-            print(f"Error saving quote request to database: {e}")
+            print(f"Error saving quote request to MongoDB: {e}")
         # ---
 
         # --- SEND DETAILED TELEGRAM NOTIFICATION ---
@@ -412,7 +414,6 @@ def page_not_found(e):
 @app.errorhandler(500)
 def internal_server_error(e):
     print(f"Server Error: {e}") # Log the actual error
-    db.session.rollback() # Rollback db session in case of error during request handling
     return render_template('500.html', error="An internal server error occurred."), 500 # Don't pass raw error object
 
 # --- Initialize Database and File Watcher ---
@@ -421,13 +422,6 @@ file_observer = None
 # --- RUN SERVER ---
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
-    with app.app_context():
-        try:
-            db.create_all()
-            print("Database tables checked/created.")
-        except Exception as e:
-            print(f"Error during initial db.create_all(): {e}")
-
     file_observer = start_file_watcher()
     try:
         # Set debug=False for production deployment!

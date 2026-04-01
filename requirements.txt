@@ -1,7 +1,6 @@
 Flask
 gunicorn
-Flask-SQLAlchemy
 Flask-SocketIO
-psycopg2-binary
+pymongo
 requests
 watchdog
