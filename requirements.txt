@@ -1,0 +1,7 @@
+Flask
+gunicorn
+Flask-SQLAlchemy
+Flask-SocketIO
+psycopg2-binary
+requests
+watchdog

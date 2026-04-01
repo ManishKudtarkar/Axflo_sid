@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Error - AxFlo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css', v='2.0') }}" />
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico', v='1.0') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico', v='1.0') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/favicon.ico', v='1.0') }}">
+</head>
+<body style="padding: 2rem; text-align: center; display: flex; flex-direction: column; min-height: 100vh;">
+    <header class="site-header" style="position: static;">
+      <div class="container header-inner">
+        <div class="brand"><a href="{{ url_for('home') }}">AXFLO PUMP SOLUTION</a></div>
+      </div>
+    </header>
+     <main style="flex: 1; display: flex; align-items: center; justify-content: center;">
+      <div class="container">
+          <h1 style="color: #dc3545; font-size: 3rem; margin-bottom: 1rem;">500</h1>
+          <h2>Internal Server Error</h2>
+          <p class="muted" style="margin-bottom: 2rem;">Sorry, something went wrong on our end. We are aware of the issue and working to fix it.</p>
+          <a href="{{ url_for('home') }}" class="btn primary">Go to Homepage</a>
+           {% if error %}
+               <p style="margin-top: 2rem;"><small>Error Message: {{ error }}</small></p>
+           {% endif %}
+      </div>
+    </main>
+     <footer class="site-footer" style="margin-top: auto;">
+      <div class="container footer-inner" style="gap: 0.5rem;">
+        <p>© 2025 AxFlo — All rights reserved.</p>
+      </div>
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,144 @@
+[
+  {
+    "id": 1,
+    "name": "BSK AIR OPERATED DOUBLE DIAPHRAGM PUMP",
+    "category": "pneumatic diaphragm pump",
+    "price": "On Request",
+    "description": "Versatile AODD pumps for general fluid transfer.",
+"long_description": "The air-operated double diaphragm pump (AODD pump) is a highly advanced fluid transfer solution and one of the most innovative pump technologies available today. Powered entirely by compressed air, it offers exceptional safety and reliability across a wide range of demanding applications.These pumps are engineered to handle corrosive liquids, fluids containing large particles, high-viscosity media, as well as volatile, flammable, and toxic liquids, ensuring smooth and efficient operation without leakage or vapor escape.Axflo Pump Solution offers four specialized pump series to meet diverse industry needs",
+    "img": "images/BSK-pump-01.jpg",
+    "specs": {
+      "Type": "Standard AODD",
+      "Materials": "Carbon Steel & Cast Iron",
+      "Sizes": "1/4\" to 3\""
+    },
+    "datasheet": null
+  },
+  {
+    "id": 2,
+    "name": "BSK powder pump",
+    "category": "Powder Pump",
+    "price": "On Request",
+    "description": "High-efficiency pump for high bulk density powders.",
+    "long_description": "BSK Series Powder Conveying Pumps are available in 1, 1½, 2, and 3 sizes, and all our metal and plastic pumps can be easily converted into powder-handling pumps. Designed with end-user convenience in mind, these pumps feature a one-click reset function that quickly resolves powder clogging, minimizing downtime and maintenance effort. Our pumps deliver excellent performance with high bulk-density powders, supporting materials with densities of up to ≤1200 kg/m³.Additionally, the simple and intuitive regulator design ensures faster setup, smoother operation, and significant time savings—making the BSK series a reliable, efficient, and user-friendly solution for powder conveying applications.",
+    "img": "images/powder pump.png",
+    "specs": {
+      "Type": "Air-Operated Diaphragm (Powder)",
+      "Air filtration": "50 µm",
+      "Air supply capacity": "> 2 Nm³/min",
+      "Fluidizing air inlet": "12mm"
+    },
+    "datasheet": null
+  },
+  {
+    "id": 3,
+    "name": "CORROSION RESISTANCE LINED PUMP",
+    "category": "Centrifugal Pump",
+    "price": "On Request",
+    "description": "Polypropylene (PP) pump for corrosive chemicals.",
+    "long_description": "The SEL Series Corrosion Resistance Lined Pump is a fluoropolymer-lined horizontal centrifugal pump engineered for safe, efficient, and long-lasting operation in highly aggressive environments. Featuring a back pull-out design and end suction configuration, the pump allows easy maintenance without disturbing piping or motor alignment.Designed and manufactured in accordance with ISO 2858 and ISO 5199 standards, the SEL series ensures dimensional consistency, reliability, and interchangeability across industrial installations. The fluoropolymer lining provides exceptional resistance to corrosive, hazardous, and toxic chemicals, making it an ideal choice for critical chemical handling applications.With its robust construction, smooth internal flow path, and leak-resistant design, the SEL series delivers stable performance, extended service life, and enhanced operational safety.",
+    "img": "images/SEL LINED PUMP.png",
+    "specs": {
+      "Material": "FEP: 180°C, PFA: 200°C, PVDF:110°C",
+      "Type": "Centrifugal, Non-Metallic",
+      "Motor Power (kw) Max":"450 kw",
+      "Capacity Max": "1000 m3/hr"
+    },
+    "datasheet": null
+  },
+   {
+    "id": 4,
+    "name": "POLYPROPLYLENE (PP) CORROSION RESISTANCE MOULDED PUMP.",
+    "category": "Polypropylene Pump",
+    "price": "On Request",
+    "description": "A rugged and reliable corrosion-resistant pump designed for chemical and industrial fluid handling.",
+    "long_description": "The STP Series Polypropylene (PP) Corrosion-Resistant Moulded Pump is designed to deliver reliable, worry-free performance when handling corrosive chemicals. Its non-metallic, injection-moulded construction eliminates the risk of corrosion, making it an ideal choice for industries where chemical compatibility and long service life are critical.Featuring a back pull-out design with volute casing and end suction configuration, the STP series allows for quick maintenance and reduced downtime, helping you keep operations running smoothly. Built on a philosophy of simple, rugged, and dependable engineering, these pumps require minimal upkeep while delivering consistent performance.Manufactured from high-quality polypropylene (PP), the pump offers excellent resistance to acids, alkalis, and aggressive fluids. The lightweight yet rigid material ensures easy installation and safe operation, with temperature handling capability of up to 75 °C.Whether you need a dependable pump for daily chemical transfer or a long-lasting solution for harsh industrial environments, the STP Series provides a cost-effective, corrosion-proof, and efficient pumping solution you can trust.",
+    "img": "images/pp-centrifugal-pump-white.png",
+    "specs": {
+      "Motor": "3 HP",
+      "Max Flow Rate": "100 L/min",
+      "Max Head": "70m",
+      "Material": "Polypropylene (PP)",
+      "Max Operating Temperature":"Up to 75 °C"
+    },
+    "datasheet": null
+  },
+  {
+    "id": 5,
+    "name": "SF PP Centrifugal Pump (Yellow)",
+    "category": "Centrifugal Pump",
+    "price": "On Request",
+    "description": "Chemical process pump with polypropylene casing.",
+    "long_description": "Another variant of our reliable Polypropylene (PP) Centrifugal Pumps. The yellow casing indicates its use for specific chemical applications, offering excellent resistance to corrosion and wear.",
+    "img": "images/pp-centrifugal-pump-yellow.webp",
+    "specs": {
+      "Material": "Polypropylene (PP)",
+      "Type": "Centrifugal, Non-Metallic",
+      "Brand": "SF",
+      "Inlet/Outlet": "2 inch (example)"
+    },
+    "datasheet": null
+  },
+  {
+    "id": 6,
+    "name": "BSK High Pressure AODD Pump",
+    "category": "High Pressure Pump",
+    "price": "On Request",
+    "description": "2:1 ratio high-pressure air-operated diaphragm pumps.",
+    "long_description": "The 2:1 High Pressure Pump Series is a pneumatic diaphragm booster pump. It features a 2:1 ratio, enabling it to double fluid pressure with low – pressure input air. With a maximum head of up to 140m, it’s ideal for vertical fluid transfer. The two – in – one typical motor pressure cylinder simplifies its structure, making it compact and reliable. There are different materials and pump sizes optional according to customers’ needs.For 2:1 high pressure pumps, we have 1”, 1 1/2”, 2” and 3”,they are suitable for high back-pressure applications such as filter press machinery, high viscosity liquid transferring, ceramic slurry, long distance transportation etc.",
+    "img": "images/high-pressure-pump.jpg",
+    "specs": {
+      "Type": "High Pressure AODD",
+      "Pressure Ratio": "2:1",
+      "Wetted Materials": "Aluminium, Stainless Steel, PVDF"
+    },
+    "datasheet": null
+  },
+  {
+    "id": 7,
+    "name": "Mining & Dewatering Pump",
+    "category": "Mining Pump",
+    "price": "On Request",
+    "description": "Heavy-duty pumps for abrasive solids and dewatering.",
+    "long_description": "Engineered for the toughest environments, these pumps are designed for mining, construction, and dewatering applications. They can handle abrasive slurries, solids, and aggressive fluids with ease.",
+    "img": "images/mining-pump.jpg",
+    "specs": {
+      "Type": "AODD, Flap Valve",
+      "Construction": "Heavy-Duty Bolted",
+      "Solids Handling": "Up to 2 inches (example)"
+    },
+    "datasheet": null
+  },
+  {
+    "id": 8,
+    "name": "FDA Sanitary Pump",
+    "category": "Sanitary Pump",
+    "price": "On Request",
+    "description": "Hygienic pumps for food, beverage, and pharma.",
+    "long_description": "FDA and 3A series Sanitation AODD pumps, we have 1’’, 1 1/2’’, 2’’, 2 1/2’’, 3’’ and 4’’, the liquid parts are made of stainless steel, we use Ra 0.8 mechanical polishing on the surface of the inner and outer surface of the wet parts, which ensures our pumps have good performance and under CIP and good self-draining, there will be no residue in our pumps. Fully guaranteeing the safety of food transportation..",
+    "img": "images/sanitary-pump.jpg",
+    "specs": {
+      "Type": "Hygienic AODD",
+      "Material": "Polished 316L Stainless Steel",
+      "Connections": "Tri-Clamp (TC)",
+      "Compliance": "FDA, 3-A"
+    },
+    "datasheet": null
+  },
+  {
+  "id": 9,
+  "name": "Dosing Pump",
+  "category": "COMPLETE DRUM & CONTAINER PUMP SYSTEM",
+  "price": "On Request",
+  "description": "Comprehensive pump kits for safe transfer from 200L drums and 1000L IBCs.",
+  "long_description": "Our complete drum and container pump systems offer a plug-and-play solution for transferring aggressive acids, alkalis, solvents, and flammable liquids. This range includes specialized kits for 200L drums and 1000L IBC totes, featuring ATEX-certified motors for hazardous zones. Select models come integrated with digital flow meters for precise batch control, ensuring safe and efficient decanting of chemicals without spillage.",
+  "img": "images/barrel-pumps.jpg",
+  "specs": {
+    "Container Compatibility": "200L Drums, 1000L IBC Totes",
+    "Motor Types": "Electric (Variable Speed), Pneumatic (Air), ATEX Explosion Proof",
+    "Tube Materials": "SS316, PP, PVDF, Aluminum",
+    "Accessories": "Digital Flow Meter, Discharge Nozzle, Wall Bracket"
+  },
+  "datasheet": null
+}
+]

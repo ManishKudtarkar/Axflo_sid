@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.axflo.in/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
+
+# Allow all important pages
+Allow: /products
+Allow: /about
+Allow: /contact
+Allow: /events
+Allow: /request-quote
+
+# Block admin or sensitive areas (if any)
+Disallow: /admin/
+Disallow: /private/

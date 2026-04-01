@@ -1,0 +1,75 @@
+[
+  {
+    "id": 1,
+    "title": "Industrial Expo 2025 - Tarapur",
+    "date": "2025-12-18",
+    "time": "09:00 AM - 05:00 PM",
+    "location": "TIMA GROUND,Tarapur, Maharashtra, India.",
+    "type": "Exhibition",
+    "status": "past",
+    "description": "Join industry leaders and experts for a comprehensive summit on the latest pump technologies and innovations.",
+    "long_description": "This premier event brings together pump manufacturers, engineers, and industry professionals to discuss cutting-edge technologies, sustainability practices, and future trends in industrial pumping solutions. Features keynote speakers, technical sessions, and live product demonstrations.",
+    "featured_image": "images/hero-bg.jpg",
+    "images": [
+      {
+        "url": "images/hero-bg.jpg",
+        "caption": "Main exhibition hall with latest pump technologies",
+        "alt": "Industrial Expo 2025 main hall"
+      },
+      {
+        "url": "images/axflo-showroom.jpg",
+        "caption": "AxFlo booth showcasing our premium pump collection",
+        "alt": "AxFlo exhibition booth"
+      },
+      {
+        "url": "images/high-pressure-pump.jpg",
+        "caption": "Live demonstration of high-pressure pumping systems",
+        "alt": "High pressure pump demonstration"
+      },
+      {
+        "url": "images/mining-pump.jpg",
+        "caption": "Industrial mining pump systems on display",
+        "alt": "Mining pump technology showcase"
+      },
+      {
+        "url": "images/powder-pump.webp",
+        "caption": "Advanced powder handling and pumping solutions",
+        "alt": "Powder pump systems demonstration"
+      },
+      {
+        "url": "images/sanitary-pump.jpg",
+        "caption": "Sanitary pumping systems for food and pharmaceutical industries",
+        "alt": "Sanitary pump technology"
+      }
+    ],
+    "registration_link": "https://example.com/register-summit",
+    "highlights": [
+      "Keynote by leading pump technology experts",
+      "Live demonstrations of latest pump models",
+      "Networking opportunities with industry professionals",
+      "Technical workshops on pump maintenance and efficiency"
+    ],
+    "Exhibitor": [
+      {
+        "name": "Siddhesh Dhurat",
+        "title": "Btech ME",
+        "topic": "Future of Industrial Pumping Solutions"
+      }
+    ],
+    "content_sections": [
+      {
+        "title": "Event Overview",
+        "content": "The Industrial Expo 2025 at Tarapur was a landmark event that brought together over 500 industry professionals, showcasing the latest innovations in pump technology. AxFlo proudly participated with our comprehensive range of industrial pumping solutions."
+      },
+      {
+        "title": "Key Highlights",
+        "content": "Our team demonstrated cutting-edge centrifugal pumps, high-pressure systems, and energy-efficient solutions. Visitors were particularly impressed with our new powder pump series and chemical-resistant pumping systems designed for harsh industrial environments."
+      },
+      {
+        "title": "Industry Impact",
+        "content": "The expo facilitated meaningful connections between manufacturers, suppliers, and end-users. AxFlo secured several new partnerships and received positive feedback on our commitment to quality and innovation in the pumping industry."
+      }
+    ]
+  }
+]
+
