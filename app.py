@@ -4,13 +4,22 @@ import json
 import os
 import requests # For Telegram
 from datetime import datetime
-from watchdog.observers import Observer
-from watchdog.events import FileSystemEventHandler
 import threading
 import time
 from flask import Response
 
+try:
+    from watchdog.observers import Observer
+    from watchdog.events import FileSystemEventHandler
+    WATCHDOG_AVAILABLE = True
+except Exception:
+    WATCHDOG_AVAILABLE = False
+
+    class FileSystemEventHandler:
+        pass
+
 app = Flask(__name__)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 @app.route("/favicon.ico")
 def favicon():
@@ -138,11 +147,15 @@ class DataFileHandler(FileSystemEventHandler):
 
 def start_file_watcher():
     """Start watching the data JSON files for changes"""
+    if not WATCHDOG_AVAILABLE:
+        print("Watchdog is not available. File watcher disabled.")
+        return None
+
     event_handler = DataFileHandler()
     observer = Observer()
     
     # Watch the data directory
-    data_dir = os.path.join(os.path.dirname(__file__), 'data')
+    data_dir = os.path.join(BASE_DIR, 'data')
     if os.path.exists(data_dir):
         observer.schedule(event_handler, data_dir, recursive=False)
         observer.start()
@@ -161,7 +174,8 @@ def load_products():
             return _products_cache
     
     try:
-        with open("data/products.json", "r", encoding="utf-8") as f:
+        products_path = os.path.join(BASE_DIR, "data", "products.json")
+        with open(products_path, "r", encoding="utf-8") as f:
             products = json.load(f)
         
         with _cache_lock:
@@ -185,7 +199,8 @@ def load_events():
             return _events_cache
     
     try:
-        with open("data/events.json", "r", encoding="utf-8") as f:
+        events_path = os.path.join(BASE_DIR, "data", "events.json")
+        with open(events_path, "r", encoding="utf-8") as f:
             events = json.load(f)
         
         with _cache_lock:
