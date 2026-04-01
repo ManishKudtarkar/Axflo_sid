@@ -21,7 +21,7 @@
     "price": "On Request",
     "description": "High-efficiency pump for high bulk density powders.",
     "long_description": "BSK Series Powder Conveying Pumps are available in 1, 1½, 2, and 3 sizes, and all our metal and plastic pumps can be easily converted into powder-handling pumps. Designed with end-user convenience in mind, these pumps feature a one-click reset function that quickly resolves powder clogging, minimizing downtime and maintenance effort. Our pumps deliver excellent performance with high bulk-density powders, supporting materials with densities of up to ≤1200 kg/m³.Additionally, the simple and intuitive regulator design ensures faster setup, smoother operation, and significant time savings—making the BSK series a reliable, efficient, and user-friendly solution for powder conveying applications.",
-    "img": "images/powder pump.png",
+    "img": "images/powder-pump.png",
     "specs": {
       "Type": "Air-Operated Diaphragm (Powder)",
       "Air filtration": "50 µm",
@@ -37,7 +37,7 @@
     "price": "On Request",
     "description": "Polypropylene (PP) pump for corrosive chemicals.",
     "long_description": "The SEL Series Corrosion Resistance Lined Pump is a fluoropolymer-lined horizontal centrifugal pump engineered for safe, efficient, and long-lasting operation in highly aggressive environments. Featuring a back pull-out design and end suction configuration, the pump allows easy maintenance without disturbing piping or motor alignment.Designed and manufactured in accordance with ISO 2858 and ISO 5199 standards, the SEL series ensures dimensional consistency, reliability, and interchangeability across industrial installations. The fluoropolymer lining provides exceptional resistance to corrosive, hazardous, and toxic chemicals, making it an ideal choice for critical chemical handling applications.With its robust construction, smooth internal flow path, and leak-resistant design, the SEL series delivers stable performance, extended service life, and enhanced operational safety.",
-    "img": "images/SEL LINED PUMP.png",
+    "img": "images/sel-lined-pump.png",
     "specs": {
       "Material": "FEP: 180°C, PFA: 200°C, PVDF:110°C",
       "Type": "Centrifugal, Non-Metallic",
