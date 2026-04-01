@@ -403,16 +403,16 @@ def internal_server_error(e):
 # --- Initialize Database and File Watcher ---
 file_observer = None
 
-with app.app_context():
-    try:
-        db.create_all()
-        print("Database tables checked/created.")
-    except Exception as e:
-        print(f"Error during initial db.create_all(): {e}")
-
 # --- RUN SERVER ---
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
+    with app.app_context():
+        try:
+            db.create_all()
+            print("Database tables checked/created.")
+        except Exception as e:
+            print(f"Error during initial db.create_all(): {e}")
+
     file_observer = start_file_watcher()
     try:
         # Set debug=False for production deployment!
