@@ -406,6 +406,57 @@ def place_order():
         print(f"Error processing order API request: {e}")
         return jsonify({"success": False, "message": "Server error processing request."}), 500
 
+@app.route("/health", methods=["GET"])
+def health_check():
+    """Health check endpoint for debugging MongoDB and environment configuration"""
+    health_status = {
+        "status": "healthy",
+        "timestamp": datetime.utcnow().isoformat(),
+        "mongodb": {
+            "configured": bool(MONGODB_URI),
+            "connected": False,
+            "database": MONGODB_DB,
+            "message": ""
+        },
+        "telegram": {
+            "bot_token_set": bool(os.environ.get("TELEGRAM_BOT_TOKEN", "")),
+            "chat_id_set": bool(os.environ.get("TELEGRAM_CHAT_ID", ""))
+        },
+        "environment": {
+            "port": os.environ.get("PORT", "5000"),
+            "debug_mode": app.debug
+        }
+    }
+    
+    # Test MongoDB connection
+    if not MONGODB_URI:
+        health_status["mongodb"]["message"] = "MONGODB_URI environment variable not set"
+        health_status["status"] = "warning"
+        print("[HEALTH CHECK] MongoDB URI not configured")
+    else:
+        try:
+            # Test the connection with a short timeout
+            test_client = MongoClient(MONGODB_URI, serverSelectionTimeoutMS=5000)
+            test_client.admin.command('ping')
+            health_status["mongodb"]["connected"] = True
+            health_status["mongodb"]["message"] = "Successfully connected to MongoDB"
+            print("[HEALTH CHECK] MongoDB connection successful")
+            test_client.close()
+        except Exception as e:
+            health_status["mongodb"]["connected"] = False
+            health_status["mongodb"]["message"] = str(e)
+            health_status["status"] = "unhealthy"
+            print(f"[HEALTH CHECK] MongoDB connection failed: {e}")
+    
+    # Determine overall status
+    if health_status["mongodb"]["configured"] and not health_status["mongodb"]["connected"]:
+        health_status["status"] = "unhealthy"
+    elif not health_status["mongodb"]["configured"]:
+        health_status["status"] = "warning"
+    
+    http_code = 200 if health_status["status"] == "healthy" else (503 if health_status["status"] == "unhealthy" else 200)
+    return jsonify(health_status), http_code
+
 # --- Error Handling ---
 @app.errorhandler(404)
 def page_not_found(e):
