@@ -286,6 +286,7 @@ def contact():
     if request.method == "POST":
         name = request.form.get("name", "N/A")
         email = request.form.get("email", "N/A")
+        phone = request.form.get("phone", "").strip()
         message_content = request.form.get("message", "N/A")
 
         # --- SAVE TO DATABASE ---
@@ -295,7 +296,9 @@ def contact():
                 db.contact_messages.insert_one({
                     "timestamp": datetime.utcnow(),
                     "name": name,
-                    "email_phone": email,
+                    "email": email,
+                    "phone": phone,
+                    "email_phone": email if not phone else f"{email} | {phone}",
                     "message": message_content,
                 })
                 print("Contact message saved to MongoDB.")
@@ -306,7 +309,8 @@ def contact():
         # ---
 
         # --- SEND TELEGRAM NOTIFICATION ---
-        telegram_text = f"✉️ *New General Contact Form Submission*:\n\n*Name:* {name}\n*Contact:* {email}\n*Message:* {message_content}"
+        contact_details = email if not phone else f"{email} | {phone}"
+        telegram_text = f"✉️ *New General Contact Form Submission*:\n\n*Name:* {name}\n*Contact:* {contact_details}\n*Message:* {message_content}"
         send_telegram_message(telegram_text)
         # ---
 
@@ -320,11 +324,13 @@ def request_quote():
 
     if request.method == "POST":
         name = request.form.get("name", "N/A")
-        contact_info = request.form.get("contact_info", "N/A")
+        email = request.form.get("email", "N/A")
+        phone = request.form.get("phone", "").strip()
         company = request.form.get("company", "N/A")
         selected_products = request.form.getlist("products")
         details = request.form.get("details", "N/A")
         product_str = ", ".join(selected_products) if selected_products else "None Selected"
+        contact_info = email if not phone else f"{email} | {phone}"
 
         # --- SAVE TO DATABASE ---
         try:
@@ -333,6 +339,8 @@ def request_quote():
                 db.quote_requests.insert_one({
                     "timestamp": datetime.utcnow(),
                     "name": name,
+                    "email": email,
+                    "phone": phone,
                     "contact_info": contact_info,
                     "company": company,
                     "selected_products": selected_products,

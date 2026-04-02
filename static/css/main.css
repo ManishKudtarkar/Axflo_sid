@@ -3105,6 +3105,11 @@ body.dark-mode .contact-section {
   font-weight: bold;
 }
 
+.contact-form label.optional-field::after,
+.form-group label.optional-field::after {
+  content: none;
+}
+
 .contact-form input,
 .contact-form textarea {
   width: 100%;

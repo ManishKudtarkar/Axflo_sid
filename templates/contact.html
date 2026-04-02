@@ -109,8 +109,13 @@
             </div>
 
             <div class="form-group">
-              <label for="email">Email or Phone</label>
-              <input type="text" id="email" name="email" placeholder="your@email.com or +91 12345 67890" required>
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone" class="optional-field">Phone Number <span class="optional-label">(optional)</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="+91 12345 67890">
             </div>
 
             <div class="form-group">
@@ -269,13 +274,22 @@
           isValid = false;
         }
         
-        // Email/Phone validation
+        // Email validation
         if (field.name === 'email' && field.value.trim()) {
           const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
           
-          if (!emailRegex.test(field.value) && !phoneRegex.test(field.value)) {
-            showFieldError(formGroup, 'Please enter a valid email or phone number');
+          if (!emailRegex.test(field.value)) {
+            showFieldError(formGroup, 'Please enter a valid email address');
+            isValid = false;
+          }
+        }
+
+        // Optional phone validation
+        if (field.name === 'phone' && field.value.trim()) {
+          const phoneRegex = /^[\+]?[0-9\s\-\(\)]{10,}$/;
+
+          if (!phoneRegex.test(field.value)) {
+            showFieldError(formGroup, 'Please enter a valid phone number');
             isValid = false;
           }
         }
@@ -321,7 +335,7 @@
       }
       
       // Phone number formatting
-      const phoneInput = document.querySelector('#email');
+      const phoneInput = document.querySelector('#phone');
       if (phoneInput) {
         phoneInput.addEventListener('input', function(e) {
           let value = e.target.value.replace(/\D/g, '');

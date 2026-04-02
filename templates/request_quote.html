@@ -49,16 +49,19 @@
       <div class="container" style="max-width: 800px;">
         <form class="contact-form" method="post">
 
-          <label for="name">Your Name *</label>
+          <label for="name">Your Name</label>
           <input type="text" id="name" name="name" required>
 
-          <label for="contact_info">Email or Phone *</label>
-          <input type="text" id="contact_info" name="contact_info" required>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
 
-          <label for="company">Company Name (Optional)</label>
+          <label for="phone" class="optional-field">Phone Number <span class="optional-label">(optional)</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="+91 12345 67890">
+
+          <label for="company" class="optional-field">Company Name <span class="optional-label">(optional)</span></label>
           <input type="text" id="company" name="company">
 
-          <label for="products">Products Interested In *</label>
+          <label for="products">Products Interested In</label>
           <select id="products" name="products" multiple required size="5" style="height: auto; padding: 10px;">
             {% for product in products %}
               <option value="{{ product.name }}">{{ product.name }} ({{ product.category }})</option>
@@ -66,7 +69,7 @@
           </select>
           <small class="muted" style="display:block; margin-top:-0.5rem; margin-bottom:1rem;">Hold Ctrl (Cmd on Mac) to select multiple products.</small>
 
-          <label for="details">Project Details / Requirements *</label>
+          <label for="details">Project Details / Requirements</label>
           <textarea id="details" name="details" rows="6" placeholder="Please describe your application, required flow rate, head, quantity needed, delivery location, etc..." required></textarea>
 
           <div class="form-actions">
